@@ -329,7 +329,7 @@ ASALocalRun/
 # MFractors (Xamarin productivity tool) working folder 
 .mfractor/
 
-/wildlings_backend/wildlings_backend/wwwroot/static/css/*.css
-/wildlings_backend/wildlings_backend/wwwroot/static/css/*.map
-/wildlings_backend/wildlings_backend/wwwroot/static/js/*.js
+/wildlings_backend/wildlings_backend/wwwroot/static/css/
+/wildlings_backend/wildlings_backend/wwwroot/static/css/
+/wildlings_backend/wildlings_backend/wwwroot/static/js/
 
