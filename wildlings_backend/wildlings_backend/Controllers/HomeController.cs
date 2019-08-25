@@ -13,17 +13,17 @@ namespace wildlings_backend.Controllers
     {
         public IActionResult Index()
         {
-            using (var wildlingsContext = new wildlingsContext())
-            {
-                wildlingsContext.Student.Add(new Student()
-                {
-                    Age = 1,
-                    Id = 1,
-                    Name = "test",
-                    Sex = 0
-                });
-                wildlingsContext.SaveChanges();
-            };
+            //using (var wildlingsContext = new wildlingsContext())
+            //{
+            //    wildlingsContext.Student.Add(new Student()
+            //    {
+            //        Age = 1,
+            //        Id = 1,
+            //        Name = "test",
+            //        Sex = 0
+            //    });
+            //    wildlingsContext.SaveChanges();
+            //};
             
            
 
