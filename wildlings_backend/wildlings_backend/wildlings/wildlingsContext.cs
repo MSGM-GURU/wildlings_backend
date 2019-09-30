@@ -15,7 +15,7 @@ namespace wildlings_backend.wildlings
         {
         }
 
-        public virtual DbSet<Student> Student { get; set; }
+        public virtual DbSet<Customer> Customer { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
@@ -30,32 +30,48 @@ namespace wildlings_backend.wildlings
         {
             modelBuilder.HasAnnotation("ProductVersion", "2.2.6-servicing-10079");
 
-            modelBuilder.Entity<Student>(entity =>
+            modelBuilder.Entity<Customer>(entity =>
             {
-                entity.ToTable("student", "wildlings");
-
-                entity.HasIndex(e => e.Name)
-                    .HasName("ix_student_name");
+                entity.ToTable("customer", "wildlings");
 
                 entity.Property(e => e.Id)
-                    .HasColumnName("id")
-                    .HasColumnType("int(11)");
-
-                entity.Property(e => e.Age)
-                    .HasColumnName("age")
                     .HasColumnType("int(11)")
-                    .HasDefaultValueSql("0");
+                    .ValueGeneratedNever();
+
+                entity.Property(e => e.Address)
+                    .HasMaxLength(100)
+                    .IsUnicode(false);
+
+                entity.Property(e => e.Birthday).HasColumnType("date");
+
+                entity.Property(e => e.Email)
+                    .HasMaxLength(100)
+                    .IsUnicode(false);
+
+                entity.Property(e => e.EmergencyContact)
+                    .IsRequired()
+                    .HasMaxLength(10)
+                    .IsUnicode(false);
+
+                entity.Property(e => e.EmergencyPhone)
+                    .IsRequired()
+                    .HasMaxLength(10)
+                    .IsUnicode(false);
 
                 entity.Property(e => e.Name)
                     .IsRequired()
-                    .HasColumnName("name")
-                    .HasMaxLength(32)
+                    .HasMaxLength(10)
                     .IsUnicode(false);
 
-                entity.Property(e => e.Sex)
-                    .HasColumnName("sex")
-                    .HasColumnType("tinyint(4)")
-                    .HasDefaultValueSql("1");
+                entity.Property(e => e.PersonalId)
+                    .IsRequired()
+                    .HasMaxLength(10)
+                    .IsUnicode(false);
+
+                entity.Property(e => e.Phone)
+                    .IsRequired()
+                    .HasMaxLength(10)
+                    .IsUnicode(false);
             });
         }
     }

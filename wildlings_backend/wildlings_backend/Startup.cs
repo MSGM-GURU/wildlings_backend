@@ -9,6 +9,7 @@ using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using Swashbuckle.AspNetCore.Swagger;
 
 namespace wildlings_backend
 {
@@ -33,6 +34,22 @@ namespace wildlings_backend
 
 
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
+
+            services.AddSwaggerGen(c =>
+            {
+                c.SwaggerDoc(
+                    // name: 攸關 SwaggerDocument 的 URL 位置。
+                    name: "v1",
+                    // info: 是用於 SwaggerDocument 版本資訊的顯示(內容非必填)。
+                    info: new Info
+                    {
+                        Title = "RESTful API",
+                        Version = "1.0.0",
+                        Description = "This is ASP.NET Core RESTful API Sample.",
+                        TermsOfService = "None"
+                    }
+                );
+            });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -52,7 +69,11 @@ namespace wildlings_backend
             app.UseHttpsRedirection();
             app.UseStaticFiles();
             app.UseCookiePolicy();
-
+            app.UseSwagger();
+            app.UseSwaggerUI(c =>
+            {
+                c.SwaggerEndpoint("/swagger/v1/swagger.json", "My API V1");
+            });
             app.UseMvc(routes =>
             {
                 routes.MapRoute(

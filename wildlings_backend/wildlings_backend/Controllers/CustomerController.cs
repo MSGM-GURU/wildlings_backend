@@ -1,8 +1,5 @@
-﻿using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
+using System.Collections.Generic;
 using wildlings_backend.Models;
 using wildlings_backend.Models.Service;
 using wildlings_backend.Models.Service.Interface;
@@ -29,9 +26,7 @@ namespace wildlings_backend.Controllers
         [HttpGet("{id}")]
         public Customer GetCustomer(long id)
         {
-
             return _customerService.GetCustomer(id);
-
         }
     }
 }
