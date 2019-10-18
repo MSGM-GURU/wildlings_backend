@@ -18,5 +18,15 @@ namespace wildlings_backend.Models.Service
         {
             return _customerRepo.GetCustomer(id);
         }
+
+        public void AddCustomer(Customer customer)
+        {
+            _customerRepo.AddCustomer(customer);
+        }
+
+        public void UpdateCustomer(Customer customer)
+        {
+            _customerRepo.UpdateCustomer(customer);
+        }
     }
 }

@@ -28,5 +28,17 @@ namespace wildlings_backend.Controllers
         {
             return _customerService.GetCustomer(id);
         }
+        [HttpPost]
+        public IActionResult AddCustomer(Customer customer)
+        {
+            _customerService.AddCustomer(customer);
+            return Ok();
+        }
+        [HttpPost]
+        public IActionResult UpdateCustomer(Customer customer)
+        {
+            _customerService.UpdateCustomer(customer);
+            return Ok();
+        }
     }
 }

@@ -6,5 +6,7 @@ namespace wildlings_backend.Models.Service.Interface
     {
         IEnumerable<Customer> GetAllCustomer();
         Customer GetCustomer(long id);
+        void AddCustomer(Customer customer);
+        void UpdateCustomer(Customer customer);
     }
 }

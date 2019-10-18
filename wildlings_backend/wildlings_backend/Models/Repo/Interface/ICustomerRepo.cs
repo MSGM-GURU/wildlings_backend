@@ -7,5 +7,7 @@ namespace wildlings_backend.Models.Repo.Interface
         IEnumerable<Customer> GetAllCustomer();
 
         Customer GetCustomer(long id);
+        void AddCustomer(Customer customer);
+        void UpdateCustomer(Customer customer);
     }
 }

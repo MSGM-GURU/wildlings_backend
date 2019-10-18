@@ -34,5 +34,15 @@ namespace wildlings_backend.Models.Repo
         {
             return _allCustomer.FirstOrDefault(x => x.Id == id);
         }
+
+        public void AddCustomer(Customer customer)
+        {
+            throw new System.NotImplementedException();
+        }
+
+        public void UpdateCustomer(Customer customer)
+        {
+            throw new System.NotImplementedException();
+        }
     }
 }
